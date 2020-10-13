@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="box"> 
+        <h1>TODO APP</h1>
+        
+        
+        <form action="/create" method="POST">
+            <div id="section_description">  <label for="Description">Description</label><br>
+        <textarea name="description" id="Description" cols="1" rows="1"></textarea>
+   </div>
+      <div id="section2">
+          <div class="category" id="select_category">
+            <label for="category">Category</label> 
+           <select name="category" id="category">
+               <option value="none" selected disabled hidden>Choose Category</option>
+               <option value="Personal">Personal</option>
+               <option value="Work">Work</option>
+               <option value="School">School</option>
+               <option value="Others">Others</option>
+           </select>
+        </div>
+          <div class="category" id="date_category">
+         <label for="duedate">DUEDATE</label>
+         <input type="date" name="date" required id="DUEDATE">
+
+          </div>
+      </div>
+      <div id="buttons_box"> <button>ADD TASK</button>
+      
+        </div>
+     
+    </form>  <a href="" id="delete"><button>DELETE TASK</button></a>
+     <ul>
+        <% for(let i of to){%>
+            <li>
+                <input type="checkbox" value="<%= i.id %>" class="input">
+                <p class="task"><span><%= i.description %></span><br><span class="span"><i class="fa fa-calendar"></i>&nbsp;<%= i.date %></span></p>
+                
+                <button><%= i.category%></button>
+            </li>
+            
+            <%}
+        
+        %>
+    </ul>
+</div>
+   
+   
+    <script src="./js/home.js"></script>
+</body>
+</html>
